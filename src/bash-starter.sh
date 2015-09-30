@@ -88,3 +88,5 @@ ln -sf $HOME/.bashrc $HOME/.bash_profile
 ln -sf $HOME/.bashrc $HOME/.profile
 
 echo -e "$WARNING"
+
+[ $SHELL = $(env bash) ] && source $HOME/.bashrc
