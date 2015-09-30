@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env bash
 # check os
 # backup old bashconf
 # install bash git aware prompt
