@@ -18,7 +18,7 @@ echo -e "${PNK}###  ${RED}#### ${CYN} #  ${WHT}####   ${PNK}###  ${RED}#  # ${CY
 echo -e "${PNK}#  # ${RED}#  # ${CYN}  # ${WHT}#  #   ${PNK}#  # ${RED}#  # ${CYN}#    ${WHT}#    ${PNK}  # ${RED} #"
 echo -e "${PNK}#  # ${RED}#  # ${CYN}  # ${WHT}#  #   ${PNK}#  # ${RED}#  # ${CYN}#    ${WHT}#    ${PNK}  # ${RED}  "
 echo -e "${PNK}###  ${RED}#  # ${CYN}##  ${WHT}#  #   ${PNK}#  # ${RED} ##  ${CYN}#### ${WHT}#### ${PNK}##  ${RED} #"
-
+echo ""
 
 # check for usage error
 if ! $( [ $# -eq 0 ] || [ $# -eq 2 ] ); then 
@@ -89,4 +89,9 @@ ln -sf $HOME/.bashrc $HOME/.profile
 
 echo -e "$WARNING"
 
-[ $SHELL = $(env bash) ] && source $HOME/.bashrc
+# source new bashrc if $SHELL == $(env bash)
+if [ $SHELL = $(env bash) ]; then
+  source $HOME/.bashrc
+else 
+  bash
+fi
