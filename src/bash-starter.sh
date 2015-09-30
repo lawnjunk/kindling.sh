@@ -30,16 +30,17 @@ fi
 
 # setup script variables
 if [ $# -eq 2 ]; then
-  DEBUG_ENABLED=1
+  DEBUG_ENABLED=True
   OS="$2"
   HOME="./USER_TEST"
   [ ! -d $HOME ] && mkdir $HOME
 else 
+  DEBUG_ENABLED=False
   OS=`uname`
 fi
 
 debug() {
-  if [ $DEBUG_ENABLED -eq 1 ]; then
+  if [ $DEBUG_ENABLED = True ]; then
     echo -e ${PNK}${@}${WHT}
   fi
 }
