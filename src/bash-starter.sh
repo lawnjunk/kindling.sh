@@ -20,7 +20,7 @@ echo -e "${PNK}#  # ${RED}#  # ${CYN}  # ${WHT}#  #   ${PNK}#  # ${RED}#  # ${CY
 echo -e "${PNK}###  ${RED}#  # ${CYN}##  ${WHT}#  #   ${PNK}#  # ${RED} ##  ${CYN}#### ${WHT}#### ${PNK}##  ${RED} #"
 
 debug() {
-  if [ $debug = True ]; then
+  if [ $debug -eq 1 ]; then
     echo -e ${PNK}${@}${WHT}
   fi
 }
@@ -35,7 +35,7 @@ fi
 
 # setup script variables
 if [ $# -eq 2 ]; then
-  debug=True
+  debug=1
   OS="$2"
   HOME="./USER_TEST"
   [ ! -d $HOME ] && mkdir $HOME
