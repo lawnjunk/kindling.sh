@@ -19,11 +19,6 @@ echo -e "${PNK}#  # ${RED}#  # ${CYN}  # ${WHT}#  #   ${PNK}#  # ${RED}#  # ${CY
 echo -e "${PNK}#  # ${RED}#  # ${CYN}  # ${WHT}#  #   ${PNK}#  # ${RED}#  # ${CYN}#    ${WHT}#    ${PNK}  # ${RED}  "
 echo -e "${PNK}###  ${RED}#  # ${CYN}##  ${WHT}#  #   ${PNK}#  # ${RED} ##  ${CYN}#### ${WHT}#### ${PNK}##  ${RED} #"
 
-debug() {
-  if [ $DEBUG_ENABLED -eq 1 ]; then
-    echo -e ${PNK}${@}${WHT}
-  fi
-}
 
 # check for usage error
 if ! $([ $# -eq 0 ] || [ $# -eq 2 ]); then 
@@ -39,12 +34,16 @@ if [ $# -eq 2 ]; then
   OS="$2"
   HOME="./USER_TEST"
   [ ! -d $HOME ] && mkdir $HOME
-  #echo "" > $HOME/.profile
-  #echo "" > $HOME/.bashrc
-  #echo "" > $HOME/.bash_profile
 else 
   OS=`uname`
 fi
+
+debug() {
+  if [ $DEBUG_ENABLED -eq 1 ]; then
+    echo -e ${PNK}${@}${WHT}
+  fi
+}
+
 debug "OS: $OS\n"
 
 # only run script for linux or mac
