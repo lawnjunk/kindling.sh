@@ -10,7 +10,7 @@ BLU="\e[94m" #light blue
 PNK="\e[95m" #light magenta
 CYN="\e[96m" #light cyan
 WHT="\e[97m" #light white
-FGD="\e[99m" #light default foreground color
+FGD="\e[39m" #light default foreground color
 
 # set PS1 (prompt)
 export PS1="\[$txt\]\u\[$txtwht\]@\[$txtcyn\]\h \[$txtred\]\W \[$txtcyn\]$git_branch\[$txtred\]$git_dirty\[$txtrst\]$ "
