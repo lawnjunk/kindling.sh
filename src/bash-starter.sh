@@ -21,7 +21,7 @@ echo -e "${PNK}###  ${RED}#  # ${CYN}##  ${WHT}#  #   ${PNK}#  # ${RED} ##  ${CY
 
 
 # check for usage error
-if ! $([ $# -eq 0 ] || [ $# -eq 2 ]); then 
+if ! $( [ $# -eq 0 ] || [ $# -eq 2 ] ); then 
   echo -e "$RED USAGE ERROR:"
   echo -e "    ${CYN}Run Installer:${WHT} ./bash-starter.sh"
   echo -e "    ${CYN}Development:${WHT} ./bash-starter.sh --test <Linux || Darwin>" 
