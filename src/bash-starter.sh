@@ -19,7 +19,7 @@ echo -e "${PNK}#  # ${RED}#  # ${CYN}  # ${WHT}#  #   ${PNK}#  # ${RED}#  # ${CY
 echo -e "${PNK}#  # ${RED}#  # ${CYN}  # ${WHT}#  #   ${PNK}#  # ${RED}#  # ${CYN}#    ${WHT}#    ${PNK}  # ${RED}  "
 echo -e "${PNK}###  ${RED}#  # ${CYN}##  ${WHT}#  #   ${PNK}#  # ${RED} ##  ${CYN}#### ${WHT}#### ${PNK}##  ${RED} #"
 
-debug () {
+debug() {
   if [ $debug = True ]; then
     echo -e ${PNK}${@}${WHT}
   fi
