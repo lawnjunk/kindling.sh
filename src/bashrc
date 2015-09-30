@@ -4,6 +4,7 @@ source "${GITAWAREPROMPT}/main.sh"
 
 # set PS1 (prompt)
 export PS1="\[$txtcyn\]\u\[$txtwht\]@\[$txtcyn\]\h \[$txtred\]\W \[$txtcyn\]$git_branch\[$txtred\]$git_dirty\[$txtrst\]$ "
+export PS1="\[$txtcyn\]\u@\h \[$txtred\]\W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
 # add convience aliases
 OS=`uname`
