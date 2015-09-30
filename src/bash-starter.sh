@@ -6,15 +6,16 @@
 # set convienece alisus
 # link bashrc bash_profile and profile to be the same
 
-debug () {
-  if [ $DEBUG = "ENABLED" ]; then
-    echo -e $1
-  fi
-}
-
+PNK="\e[95m"
 RED="\e[91m"
 CYN="\e[96m" 
 WHT="\e[39m"
+
+debug () {
+  if [ $DEBUG = "ENABLED" ]; then
+    echo -e ${PNK}${1}${WHT}
+  fi
+}
 
 USAGE_ERROR="true"
 [ $# -eq 0 ] || [ $# -eq 2 ] && USAGE_ERROR="flase"
@@ -40,16 +41,10 @@ else
 fi
 debug "OS: $OS\n"
 
-if [ $OS = "Linux" ]; then 
-  LSColorFlag="--color=auto"
-elif [ $OS = "Darwin" ]; then
-  LSColorFlag="-G"
-else
-  echo "This script must be run on a Linux or OS X Operating System."
-# check os and set color flag
-  exit 1
-fi
-debug "LS COLOR FLAG: $LSColorFlag\n"
+# only run script for linux or mac
+OS_ERROR="true"
+[ $OS = "Linux" ] || [ $OS = "Darwin" ] && OS_ERROR="false"
+[ $OS_ERROR = "true" ] && echo -e "${RED}ERROR:${WHT} This script must be run on a Linux or OS X Operating System." && exit 1
 
 # make back-up of origional bashrc
 if [ -f $HOME/.bashrc ]; then 
@@ -77,24 +72,8 @@ fi
 
 # create $HOME/.bashrc
 BASH_PATH=$HOME/.bashrc
+curl -p $BASH_PATH 
 
-echo "export GITAWAREPROMPT=\$HOME/.bash/git-aware-prompt" >> $BASH_PATH
-echo "source \"\${GITAWAREPROMPT}/main.sh\""               >> $BASH_PATH
-echo ""                                                   >> $BASH_PATH
-echo "export PS1=\"\[\$txtcyn\]\u\[\$txtwht\]@\[\$txtcyn\]\h \[\$txtred\]\W \[\$txtcyn\]\$git_branch\[\$txtred\]\$git_dirty\[\$txtrst\]\$ \"" >> $BASH_PATH
-echo "" >> $BASH_PATH
-# set convienence aliases
-# note: intentional use of double qoutes and \"
-#       single quotes dont expand variables, and
-#       I want their files to have double qoutes.
-echo "alias ls=\"ls $LSColorFlag\"" >> $BASH_PATH
-echo "alias la=\"ls -a\""           >> $BASH_PATH
-echo "alias ll=\"ls -lh\""          >> $BASH_PATH
-echo "alias lal=\"ls -lah\""        >> $BASH_PATH
-echo ""                             >> $BASH_PATH
-echo "alias ..=\"cd ..\""           >> $BASH_PATH
-
-# set new ps1
 # make links so bashrc bash_profile and profile are all the same
 
 echo -e "$WARNING"
