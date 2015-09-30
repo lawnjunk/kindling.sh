@@ -40,13 +40,13 @@ else
 fi
 debug "OS: $OS\n"
 
-# check os and set color flag
 if [ $OS = "Linux" ]; then 
   LSColorFlag="--color=auto"
 elif [ $OS = "Darwin" ]; then
   LSColorFlag="-G"
 else
   echo "This script must be run on a Linux or OS X Operating System."
+# check os and set color flag
   exit 1
 fi
 debug "LS COLOR FLAG: $LSColorFlag\n"
@@ -81,6 +81,8 @@ BASH_PATH=$HOME/.bashrc
 echo "export GITAWAREPROMPT=\$HOME/.bash/git-aware-prompt" >> $BASH_PATH
 echo "source \"\${GITAWAREPROMPT}/main.sh\""               >> $BASH_PATH
 echo ""                                                   >> $BASH_PATH
+echo "export PS1=\"\[\$txtcyn\]\u\[\$txtwht\]@\[\$txtcyn\]\h \[\$txtred\]\W \[\$txtcyn\]\$git_branch\[\$txtred\]\$git_dirty\[\$txtrst\]\$ \"" >> $BASH_PATH
+echo "" >> $BASH_PATH
 # set convienence aliases
 # note: intentional use of double qoutes and \"
 #       single quotes dont expand variables, and

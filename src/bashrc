@@ -1,0 +1,32 @@
+# setup get aware prompt
+export GITAWAREPROMPT=$HOME/.bash/git-aware-prompt
+source "${GITAWAREPROMPT}/main.sh"
+
+# set PS1 (prompt)
+export PS1="\[$txtcyn\]\u\[$txtwht\]@\[$txtcyn\]\h \[$txtred\]\W \[$txtcyn\]$git_branch\[$txtred\]$git_dirty\[$txtrst\]$ "
+
+# add convience aliases
+if [ $OS = "Linux" ]; then 
+  LSColorFlag="--color=auto"
+elif [ $OS = "Darwin" ]; then
+  LSColorFlag="-G"
+fi 
+
+alias ls="ls $LSColorFlag"
+alias la="ls -a"
+alias ll="ls -lh"
+alias lal="ls -lah"
+alias l="ls -1"
+
+# color code man pages
+man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+      man "$@"
+}
