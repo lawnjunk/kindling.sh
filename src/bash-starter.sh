@@ -43,8 +43,6 @@ if [ $# -eq 2 ]; then
   #echo "" > $HOME/.bashrc
   #echo "" > $HOME/.bash_profile
 else 
-  echo -e $RED "exiting here for test so i dont break my computer"
-  exit 0 
   OS=`uname`
 fi
 debug "OS: $OS\n"
