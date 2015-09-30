@@ -6,7 +6,7 @@ source "${GITAWAREPROMPT}/main.sh"
 export PS1="\[$txtcyn\]\u\[$txtwht\]@\[$txtcyn\]\h \[$txtred\]\W \[$txtcyn\]$git_branch\[$txtred\]$git_dirty\[$txtrst\]$ "
 
 # add convience aliases
-$OS=`uname`
+OS=`uname`
 if [ $OS = "Linux" ]; then 
   LSColorFlag="--color=auto"
 elif [ $OS = "Darwin" ]; then
