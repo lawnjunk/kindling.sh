@@ -1,30 +1,24 @@
-Code 101: Intro to Software Development & Careers in Tech
------------------------
+Code 101 BASH CONFIG BOOSTRAP
+=============================
 
-### Pre-work
+# Getting Started
+## Prerequisites
+* Unix-based operating System (OS X or Linux)
+* `Bash` should be installed on your computer
+* `curl` should be installed on your computer
+* `git` should be installed on your computer
 
-##### 1. Ensure your laptop up to the task of coding
+## Installation
+Install by running the folling command in your terminal.
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/slugbyte/code-101-prework/master/src/bash-starter.sh)"
+```
 
-  - Is virus and malware free
-  - Uses the latest, stable, updated version of its operating system
-  - Has a functioning screen, keyboard, and trackpad
-  - Has plenty of free hard drive space and memory
-  - Can reliably connect to wireless networks
+# What am i getting?
+## Color Coding
 
-##### 2. Complete the setup guide for your computer's operating system
+## Prompt
 
-  - [Mac OS X](prework/mac/1_terminal.md)
-  - [Ubuntu](prework/ubuntu/1_terminal.md)
-  - [Windows](prework/windows/1_terminal.md)
+##
 
-Following completion of these Pre-work assignments, you should:
- - Have a terminal with a Git compatible prompt
- - Be able to receive a valid response when typing "git --version"
 
-##### 3. Download and Install Slack
-
-We use Slack to distribute files and collaborate before, during, and after the workshop.
-
-  - [Download Slack](https://slack.com/apps)
-
-Look for an email from us prior to the workshop, in order to join our Slack team.
