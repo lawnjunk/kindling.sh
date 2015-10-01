@@ -2,6 +2,9 @@
 export GITAWAREPROMPT=$HOME/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 
+# setup auto completion for git commands
+source $HOME/.bash/git-completion.sh
+
 WHT="\e[90m" #light black
 RED="\e[91m" #light red
 GRN="\e[92m" #light green

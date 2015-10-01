@@ -76,6 +76,7 @@ if [ ! -d $HOME/.bash/git-aware-prompt ]; then
   git clone git://github.com/jimeh/git-aware-prompt.git $HOME/.bash/git-aware-prompt
   echo ""
 fi
+curl -o $HOME/.bash/git-completion.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
 # create $HOME/.bashrc
 BASH_PATH=$HOME/.bashrc
