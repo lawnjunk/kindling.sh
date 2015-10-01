@@ -91,8 +91,4 @@ ln -sf $HOME/.bashrc $HOME/.profile
 echo -e "$WARNING"
 
 # source new bashrc if $SHELL == $(env bash)
-if [ $SHELL = $(env bash) ]; then
-  source $HOME/.bashrc
-else 
-  bash
-fi
+if [ $SHELL = $(env bash) ] && source $HOME/.bashrc
