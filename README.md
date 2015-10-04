@@ -16,13 +16,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/slugbyte/code-101-prework/
 
 # What am i getting?
 ## Color Coding
-Color coded output of your commands is a vitial tool for learning to read  
-the output of your programs. Staring as pages of all white on black text  
-is extreamly dawnting. When you know what your looking for its like finding  
-a neadle in a hay stack, and when you dont what your looking for its all just  
-a bunch of random meaningless text. Color can help you register important  
-details, as well as keep track of what your looking at. `kindling.sh` enables  
-color coding on some of the programs you will find yourself using most often.  
+Color coded output of your commands is a vitial tool for learning to read the output of your programs. Staring as pages of all white on black text is extreamly dawnting. When you know what your looking for its like finding a neadle in a hay stack, and when you dont what your looking for its all just a bunch of random meaningless text. Color can help you register important details, as well as keep track of what your looking at. `kindling.sh` enables color coding on some of the programs you will find yourself using most often.  
 
 ## Prompt
 
