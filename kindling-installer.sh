@@ -93,4 +93,4 @@ echo -e "$WARNING"
 # source new bashrc if $SHELL == $(env bash)
 if [ $SHELL = $(env bash) ] && source $HOME/.bashrc
 
-echo -e $WHT
+echo -e "$WHT"
