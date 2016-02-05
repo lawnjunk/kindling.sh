@@ -17,7 +17,7 @@ FGD="\e[39m" #light default foreground color
 
 # set PS1 (prompt)
 export PS1="\[$txt\]\u\[$txtwht\]@\[$txtcyn\]\h \[$txtred\]\W \[$txtcyn\]$git_branch\[$txtred\]$git_dirty\[$txtrst\]$ "
-export PS1="\[$GRN\]\u\[$WHT\]@\[$GRN\]\h \[$RED\]\W \[$CYN\]\$git_branch\[$RED\]\$git_dirty\[$FGD\]\$ "
+export PS1="\[$CYN\]\u\[$WHT\]@\[$GRN\]\h \[$RED\]\W \[$CYN\]\$git_branch\[$RED\]\$git_dirty\[$FGD\]\$ "
 
 # add convience aliases
 OS=`uname`

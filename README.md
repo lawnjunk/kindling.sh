@@ -11,7 +11,7 @@ Code 101 BASH CONFIG BOOSTRAP
 ## Installation
 Install by running the folling command in your terminal.
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/slugbyte/code-101-prework/master/src/bash-starter.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/slugbyte/code-101-prework/master/src/bash-starter.sh)"
 ```
 
 # What am i getting?
