@@ -6,6 +6,22 @@
 # link bashrc bash_profile and profile to be the same
 
 # ansi color characters
+
+backup () {
+  #mv "$1" "$1.bak"
+  if [ -f $1 ]; then 
+    WARNING="$WARNING\n${red}Warning:${white} your original${cyan} $1${white} has been moved to${cyan} ${1}.bak"
+    mv "$1" "${1}.bak"
+  fi
+}
+
+debug() {
+  if [ $DEBUG_ENABLED = True ]; then
+    echo -e ${pink}${@}${white}
+  fi
+}
+
+
 ncolors="$(tput colors)"
 
 if [ -n $ncolors ] && [ $ncolors -ge 8 ];then 
@@ -38,43 +54,41 @@ if ! $( [ $# -eq 0 ] || [ $# -eq 2 ] ); then
 fi
 
 # setup script variables
-if [ $# -eq 2 ]; then
+if [ $KINDLING_DEBUG ]; then
   DEBUG_ENABLED=True
-  OS="$2"
+  KINDLING_OS="$2"
   HOME="./USER_TEST"
   [ ! -d $HOME ] && mkdir $HOME
 else 
-  DEBUG_ENABLED=False
-  OS=`uname`
+  KINDLING_DEBUG=False
+  KINDLING_OS=`uname`
 fi
 
-debug() {
-  if [ $DEBUG_ENABLED = True ]; then
-    echo -e ${pink}${@}${white}
-  fi
-}
-
-debug "OS: $OS\n"
+debug "KINDLING_OS: $KINDLING_OS\n"
 
 # only run script for linux or mac
-if ! $([ $OS = "Linux" ] || [ $OS = "Darwin" ]); then 
-  echo -e "${red}ERROR:${white} This script must be run on a Linux or OS X Operating System."
+if ! $([ $KINDLING_OS = "Linux" ] || [ $KINDLING_OS = "Darwin" ]); then 
+  echo -e "${red}ERROR:${white} This script must be run on a Linux or KINDLING_OS X Operating System."
   exit 1
 fi
 
 # make back-up of origional bashrc
-if [ -f $HOME/.bashrc ]; then 
-  WARNING="$WARNING\n${red}Warning:${white} your original${cyan} $HOME/.bashrc${white} has been moved to${cyan} $HOME/.bashrc.back"
-  mv $HOME/.bashrc $HOME/.bashrc.back 
-fi 
-if [ -f $HOME/.bash_profile ]; then 
-  mv $HOME/.bash_profile $HOME/.bash_profile.back
-  WARNING="$WARNING\n${red}Warning:${white} your original${cyan} $HOME/.bash_profile${white} has been moved to${cyan} $HOME/.bash_profile.back"
-fi
-if [ -f $HOME/.profile ]; then 
-  mv $HOME/.profile $HOME/.profile.back
-  WARNING="$WARNING\n${red}Warning:${white} your original${cyan} $HOME/.profile${white} has been moved to${cyan} $HOME/.profile.back"
-fi
+backup $HOME/.bashrc
+backup $HOME/.bash_profile
+backup $HOME/.profile
+#if [ -f $HOME/.bashrc ]; then 
+  #WARNING="$WARNING\n${red}Warning:${white} your original${cyan} $HOME/.bashrc${white} has been moved to${cyan} $HOME/.bashrc.back"
+  #backup $HOME/.bashrc
+#fi 
+#if [ -f $HOME/.bash_profile ]; then 
+  #WARNING="$WARNING\n${red}Warning:${white} your original${cyan} $HOME/.bash_profile${white} has been moved to${cyan} $HOME/.bash_profile.back"
+  #backup $HOME/.bash_profile
+#fi
+#if [ -f $HOME/.profile ]; then 
+  #mv $HOME/.profile $HOME/.profile.back
+  #WARNING="$WARNING\n${red}Warning:${white} your original${cyan} $HOME/.profile${white} has been moved to${cyan} $HOME/.profile.back"
+  #backup $HOME/.profile
+#fi
 
 # make a $HOME/.bash dir if doesnt all read exist
 [ ! -d $HOME/.bash ] && mkdir $HOME/.bash
