@@ -14,7 +14,7 @@ if [ num_colors ];then
   txt_blue="$(tput setaf 4)" #blue
   txt_magenta="$(tput setaf 5)" #magenta
   txt_cyan="$(tput setaf 6)" #cyan
-  txt_white="$(tput setaf)" #white
+  txt_white="$(tput setaf 7)" #white
   txt_forground="$(tput sgr0)" #default foreground color
 else 
   txt_black="" #black
@@ -29,7 +29,7 @@ else
 fi
 
 # set PS1 (prompt)
-export PS1="\[$txt\]\u\[$txt_white\]@\[$txt_cyan\]\h \[$txt_red\]\W \[$txt_cyan\]$git_branch\[$txt_red\]$git_dirty\[$txt_forground\]$ "
+export PS1="\[$txt_cyan\]\u\[$txt_white\]@\[$txt_cyan\]\h \[$txt_red\]\W \[$txt_cyan\]$git_branch\[$txt_red\]$git_dirty\[$txt_forground\]$ "
 
 # add convience aliases
 OS=`uname`
