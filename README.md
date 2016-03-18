@@ -1,5 +1,6 @@
-Code 201 BASH CONFIG BOOSTRAP
-=============================
+Kindling.sh
+===========
+Kindling.sh is basic bashrc with some convient features for new shell users!
 
 ## Getting Started
 ### Prerequisites
