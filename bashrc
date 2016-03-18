@@ -2,22 +2,31 @@
 export GITAWAREPROMPT=$HOME/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 
-# setup auto completion for git commands
-source $HOME/.bash/git-completion.sh
-
-WHT="\e[90m" #light black
-RED="\e[91m" #light red
-GRN="\e[92m" #light green
-YLW="\e[93m" #light yellow
-BLU="\e[94m" #light blue
-PNK="\e[95m" #light magenta
-CYN="\e[96m" #light cyan
-WHT="\e[97m" #light white
-FGD="\e[39m" #light default foreground color
+num_colors=$(tput colors)
+if [ num_colors ];then 
+  txt_black="$(tput setaf 0)" #black
+  txt_red="$(tput setaf 1)" #red
+  txt_green="$(tput setaf 2)" #green
+  txt_yellow="$(tput setaf 3)" #yellow
+  txt_blue="$(tput setaf 4)" #blue
+  txt_magenta="$(tput setaf 5)" #magenta
+  txt_cyan="$(tput setaf 6)" #cyan
+  txt_white="$(tput setaf 7)" #white
+  txt_forground="$(tput sgr0)" #default foreground color
+else 
+  txt_black="" #black
+  txt_red="" #red
+  txt_green="" #green
+  txt_yellow="" #yellow
+  txt_blue="" #blue
+  txt_magenta="" #magenta
+  txt_cyan="" #cyan
+  txt_white="" #white
+  txt_forground="" #default foreground color
+fi
 
 # set PS1 (prompt)
-export PS1="\[$txt\]\u\[$txtwht\]@\[$txtcyn\]\h \[$txtred\]\W \[$txtcyn\]$git_branch\[$txtred\]$git_dirty\[$txtrst\]$ "
-export PS1="\[$CYN\]\u\[$WHT\]@\[$GRN\]\h \[$RED\]\W \[$CYN\]\$git_branch\[$RED\]\$git_dirty\[$FGD\]\$ "
+export PS1="\[$txt_green\]\u\[$txt_white\]@\[$txt_green\]\h \[$txt_red\]\W \[$txt_cyan\]\$git_branch\[$txt_red\]\$git_dirty\[$txt_forground\]$ "
 
 # add convience aliases
 OS=`uname`
@@ -29,8 +38,7 @@ fi
 
 alias ls="ls $LSColorFlag"
 alias la="ls -a"
-alias ll="ls -lh"
-alias lal="ls -lah"
+alias ll="ls -lah"
 alias l="ls -1"
 
 alias ..="cd .."
