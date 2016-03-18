@@ -2,9 +2,6 @@
 export GITAWAREPROMPT=$HOME/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 
-# setup auto completion for git commands
-source $HOME/.bash/git-completion.sh
-
 num_colors=$(tput colors)
 if [ num_colors ];then 
   txt_black="$(tput setaf 0)" #black
@@ -29,7 +26,7 @@ else
 fi
 
 # set PS1 (prompt)
-export PS1="\[$txt_cyan\]\u\[$txt_white\]@\[$txt_cyan\]\h \[$txt_red\]\W \[$txt_cyan\]$git_branch\[$txt_red\]$git_dirty\[$txt_forground\]$ "
+export PS1="\[$txt_cyan\]\u\[$txt_white\]@\[$txt_cyan\]\h \[$txt_red\]\W \[$txt_cyan\]\$git_branch\[$txt_red\]\$git_dirty\[$txt_forground\]$ "
 
 # add convience aliases
 OS=`uname`
