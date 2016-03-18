@@ -18,8 +18,9 @@ Your prompt will now be color coded. It will also let you know what git branch y
 ### Ls
 Ls now has some handy short cuts. 
 * `ls` will now be in color
-* `la` will now print what `ls -a` used to print
-* `ll` will now print what `ls -la` used to print
+* `la` is now aliased to run `ls -a`
+* `ll` is now aliased to run `ls -lah`
+* `l` is now aliased to run `ls -1`  
 
 ### Man Pages
 Man panges will now be in color!
