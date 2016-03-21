@@ -24,6 +24,6 @@ Ls now has some handy short cuts.
 * `l` is now aliased to run `ls -1`  
 
 ### Man Pages
-Man panges will now be in color!
+Man pages will now be in color!
 
 
