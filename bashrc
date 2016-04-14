@@ -22,11 +22,11 @@ else
   txt_magenta="" #magenta
   txt_cyan="" #cyan
   txt_white="" #white
-  txt_forground="" #default foreground color
+  txt_reset="" #default foreground color
 fi
 
 # set PS1 (prompt)
-export PS1="\[$txt_green\]\u\[$txt_white\]@\[$txt_green\]\h \[$txt_red\]\W \[$txt_cyan\]\$git_branch\[$txt_red\]\$git_dirty\[$txt_forground\]$ "
+export PS1="\[$txt_green\]\u\[$txt_white\]@\[$txt_green\]\h \[$txt_red\]\W \[$txt_cyan\]\$git_branch\[$txt_red\]\$git_dirty\[$txt_reset\]$ "
 
 # add convience aliases
 OS=`uname`
