@@ -12,7 +12,7 @@ if [ num_colors ];then
   txt_magenta="$(tput setaf 5)" #magenta
   txt_cyan="$(tput setaf 6)" #cyan
   txt_white="$(tput setaf 7)" #white
-  txt_forground="$(tput sgr0)" #default foreground color
+  txt_reset="$(tput sgr0)" #default foreground color
 else 
   txt_black="" #black
   txt_red="" #red
